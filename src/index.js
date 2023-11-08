@@ -9,3 +9,11 @@ expressApp.listen(process.env.PORT ?? 3000, () => {
 })
 
 expressApp.use('/', express.static(path.join(__dirname, "public")))
+
+expressApp.get('/discord', function(request, response){ 
+    response.redirect("https://discord.gg/dZpuSFmqGf")
+})
+
+expressApp.get("/*", function(request, response){
+    response.redirect("https://rustware.xyz/")
+})
