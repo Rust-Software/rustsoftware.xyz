@@ -8,7 +8,9 @@ expressApp.listen(process.env.PORT ?? 3000, () => {
     console.log(`Server live on ${port}`)
 })
 
-expressApp.use('/', express.static(path.join(__dirname, "public")))
+expressApp.use('/', express.static(path.join(__dirname, "public"), {
+    extensions: ["html"]
+}))
 
 expressApp.get('/discord', function(request, response){ 
     response.redirect("https://discord.gg/dZpuSFmqGf")
